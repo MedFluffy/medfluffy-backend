@@ -1,11 +1,17 @@
 {
   "name": "medfluffy-api",
-  "version": "1.0.0",
-  "description": "API for MedFluffy Mobile Application",
-  "main": "index.js",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www"
   },
-  "author": "Rahmadina",
-  "license": "ISC"
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^16.1.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "morgan": "~1.9.1"
+  }
 }
