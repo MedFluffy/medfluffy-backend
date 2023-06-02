@@ -15,8 +15,8 @@ module.exports = (sequelize, DataTypes) => {
   }
   image_detail.init({
     img_url: DataTypes.STRING,
-    img_size: DataTypes.STRING,
-    extensiom_file: DataTypes.STRING,
+    size_in_kb: DataTypes.INTEGER,
+    extension_file: DataTypes.STRING,
     description: DataTypes.STRING
   }, {
     sequelize,

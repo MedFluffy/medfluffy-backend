@@ -17,20 +17,12 @@ module.exports = {
       id_img: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        defaultValue: 0,
-        references: {
-          model: image_detail, // 'Movies' would also work
-          key: 'id'
-        }
+        defaultValue: 0
       },
       id_result: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        defaultValue: 0,
-        references: {
-          model: result_detail, // 'Movies' would also work
-          key: 'id'
-        }
+        defaultValue: 0
       },
       createdAt: {
         allowNull: false,
@@ -48,6 +40,3 @@ module.exports = {
     await queryInterface.dropTable('predictions');
   }
 };
-
-Movie.belongsToMany(Actor, { through: ActorMovies });
-Actor.belongsToMany(Movie, { through: ActorMovies });

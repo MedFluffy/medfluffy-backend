@@ -14,9 +14,9 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   predictions.init({
-    img_url: DataTypes.TEXT,
-    result: DataTypes.STRING,
-    accuration: DataTypes.INTEGER
+    id_user: DataTypes.STRING,
+    id_img: DataTypes.INTEGER,
+    id_result: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'predictions',

@@ -19,7 +19,7 @@ module.exports = {
         allowNull: false,
         defaultValue: 0
       },
-      extensiom_file: {
+      extension_file: {
         type: Sequelize.STRING,
         allowNull: false,
         defaultValue: "unknown"
