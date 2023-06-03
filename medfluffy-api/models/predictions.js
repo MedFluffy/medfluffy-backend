@@ -10,7 +10,15 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      predictions.belongsTo(image_detail, {
+        as: 'pred2img',
+        foreignKey: 'id'
+      });
+      predictions.belongsTo(result_detail, {
+        as: 'pred2rslt',
+        foreignKey: 'id'
+      });
+
     }
   }
   predictions.init({

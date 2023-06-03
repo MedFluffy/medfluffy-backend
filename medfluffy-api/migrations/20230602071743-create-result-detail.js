@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('result_details', {
+    await queryInterface.createTable('result_detail', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -10,9 +10,13 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       id_img: {
-        type: Sequelize.INTEGER,
         allowNull: false,
-        defaultValue: 0
+        type: Sequelize.INTEGER,
+        defaultValue: 0,
+        references: {
+          model: 'image_detail',
+          key: 'id'
+        }
       },
       result_name: {
         type: Sequelize.STRING,

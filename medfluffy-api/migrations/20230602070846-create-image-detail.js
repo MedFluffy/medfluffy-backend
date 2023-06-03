@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('image_details', {
+    await queryInterface.createTable('image_detail', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -28,6 +28,11 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
         defaultValue: "unknown"
+      },
+      status: {
+        type: Sequelize.ENUM('uploaded', 'predicted'),
+        allowNull: false,
+        defaultValue: "uploaded"
       },
       createdAt: {
         allowNull: false,

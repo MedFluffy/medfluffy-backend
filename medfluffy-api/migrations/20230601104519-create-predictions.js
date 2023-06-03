@@ -15,14 +15,22 @@ module.exports = {
         defaultValue: "unknown"
       },
       id_img: {
-        type: Sequelize.INTEGER,
         allowNull: false,
-        defaultValue: 0
+        type: Sequelize.INTEGER,
+        defaultValue: 0,
+        references: {
+          model: 'image_detail',
+          key: 'id'
+        }
       },
       id_result: {
-        type: Sequelize.INTEGER,
         allowNull: false,
-        defaultValue: 0
+        type: Sequelize.INTEGER,
+        defaultValue: 0,
+        references: {
+          model: 'result_detail',
+          key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,
