@@ -15,7 +15,9 @@ module.exports = {
         defaultValue: 0,
         references: {
           model: 'image_detail',
-          key: 'id'
+          key: 'id',
+          onUpdate: 'CASCADE',
+          onDelete: 'SET NULL'
         }
       },
       result_name: {

@@ -1,16 +1,9 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model } = require('sequelize');
 const predictions = require('./predictions');
 const result_detail = require('./result_detail');
 module.exports = (sequelize, DataTypes) => {
   class image_detail extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     static associate(models) {
       image_detail.hasOne(predictions, {
         as: 'img2pred',
@@ -28,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     size_in_kb: DataTypes.INTEGER,
     extension_file: DataTypes.STRING,
     description: DataTypes.STRING,
-    status: DataTypes.ENUM()
+    status: DataTypes.ENUM('uploaded','predicted')
   }, {
     sequelize,
     modelName: 'image_detail',

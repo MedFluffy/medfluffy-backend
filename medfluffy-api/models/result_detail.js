@@ -16,7 +16,9 @@ module.exports = (sequelize, DataTypes) => {
       });
       result_detail.belongsTo(image_detail, {
         as: 'rslt2img',
-        foreignKey: 'id'
+        foreignKey: 'id',
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL'
       });
       // define association here
     }

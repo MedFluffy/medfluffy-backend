@@ -5,7 +5,7 @@ const v = new validator();
 const { model_image } = require('../models/image_detail');  
 /* GET home page. */
 router.get('/', async (req, res) => {
-    res.json({message: "ini halaman detail prediction"})
+    res.json({message: "ini halaman detail image"})
 });
 router.post('/add', async (req, res) => {
     res.json({message: "ini endpoint tambah foto"});

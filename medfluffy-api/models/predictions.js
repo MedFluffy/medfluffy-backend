@@ -12,11 +12,15 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       predictions.belongsTo(image_detail, {
         as: 'pred2img',
-        foreignKey: 'id'
+        foreignKey: 'id',
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL'
       });
       predictions.belongsTo(result_detail, {
         as: 'pred2rslt',
-        foreignKey: 'id'
+        foreignKey: 'id',
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL'
       });
 
     }
