@@ -6,9 +6,9 @@ require('dotenv').config();
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var imageRouter = require('./routes/image_detail');
-var predictionRouter = require('./routes/predictions');
-var resultRouter = require('./routes/result_detail');
+var imageRouter = require('./routes/ImageDetail');
+var predictionRouter = require('./routes/Predictions');
+var resultRouter = require('./routes/ResultDetail');
 
 var app = express();
 

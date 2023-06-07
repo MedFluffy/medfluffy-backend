@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const validator = require('fastest-validator');
 const v = new validator();
-const { model_image } = require('../models/image_detail');  
+const { model_image } = require('../models/images');  
 /* GET home page. */
 router.get('/', async (req, res) => {
     res.json({message: "ini halaman detail image"})

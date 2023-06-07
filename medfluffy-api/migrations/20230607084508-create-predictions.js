@@ -2,52 +2,51 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('result_detail', {
+    await queryInterface.createTable('predictions', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id_img: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        defaultValue: 0,
-        references: {
-          model: 'image_detail',
-          key: 'id',
-          onUpdate: 'CASCADE',
-          onDelete: 'SET NULL'
-        }
-      },
-      result_name: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        defaultValue: "unknown"
-      },
-      accuration: {
+      id_user: {
         type: Sequelize.INTEGER,
         allowNull: false,
         defaultValue: 0
       },
-      description: {
-        type: Sequelize.STRING,
+      id_img: {
+        type: Sequelize.INTEGER,
         allowNull: false,
-        defaultValue: "unknown"
+        defaultValue: 1,
+        references: {
+          model: 'images',
+          key: 'id'
+        }
+      },
+      id_result: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        defaultValue: 1,
+        references: {
+          model: 'results',
+          key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        allowNull: false,
         defaultValue: Sequelize.fn('now')
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        allowNull: false,
         defaultValue: Sequelize.fn('now')
       }
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('result_details');
+    await queryInterface.dropTable('predictions');
   }
 };

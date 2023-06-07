@@ -3,15 +3,15 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    return queryInterface.bulkInsert('result_detail', [{
+    return queryInterface.bulkInsert('results', [{
       id_img: 1,
-      result_name: 'a',
+      result_name: 'unknown',
       accuration: 0,
-      description: '-'
+      description: 'unknown'
   }]);
   },
 
   async down (queryInterface, Sequelize) {
-    return queryInterface.bulkDelete('result_detail', null, {});
+    return queryInterface.bulkDelete('results', null, {});
   }
 };
