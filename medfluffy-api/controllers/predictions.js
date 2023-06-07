@@ -70,8 +70,6 @@ const controller = {
         } catch (error) {
             return next(new Error(error));
         }
-
     }
 }
-
 module.exports = controller;
