@@ -1,5 +1,7 @@
 
 const db = require('../models/index');
+const validator = require('fastest-validator');
+const v = new validator();
 const controller = {
     async showAll(req, res, next){
         try {
@@ -52,34 +54,22 @@ const controller = {
             
         }
     },
-    //perlu direv add
     async add(req, res, next){
         try {
-            const { id } = req.params;
-            if(!id){
-                let data = {
-                    "message": "Id image is required"
-                }
-                return res.status(400).json(data);
+            const schema = {
+                id_user: "number|optional",
+                id_img: "number",
+                id_result: "number"
             }
-            else{
-                const data = await db.images.findOne({
-                    where: {id:id},
-                });
-                if(!data){
-                    let data = {
-                        "message": "Data with the id is not found"
-                    }
-                    return res.status(200).json(data);
-                }
-                else{
-                    return res.status(200).json(data);
-                }
+            const validate = v.validate(req.body, schema);
+            if(validate.length){
+                return res.status(400).json(validate);
             }
+            const data = await db.predictions.create(req.body);
+            return res.status(201).json(data);
         } catch (error) {
-            
+            return next(new Error(error));
         }
     }
 }
-
 module.exports = controller;
