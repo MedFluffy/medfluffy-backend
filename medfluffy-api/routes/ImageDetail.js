@@ -7,10 +7,8 @@ const v = new validator();
 router.get('/', async (req, res) => {
     res.json({message: "ini halaman detail image"})
 });
-router.post('/add', async (req, res) => {
-    res.json({message: "ini endpoint tambah foto"});
-});
-router.get('/show', controller.showAll );
+router.post('/add', controller.add);
+router.get('/show', controller.showAll);
 router.get('/show/:id', controller.showOne);
 
 module.exports = router;
