@@ -2,35 +2,38 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('predictions', {
+    await queryInterface.createTable('results', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id_user: {
+      id_img: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        defaultValue: 1,
+        references: {
+          model: 'images',
+          key: 'id',
+          onUpdate: 'CASCADE',
+          onDelete: 'SET DEFAULT'
+        }
+      },
+      result_name: {
         type: Sequelize.STRING,
         allowNull: false,
         defaultValue: "unknown"
       },
-      id_img: {
-        allowNull: false,
+      accuration: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         defaultValue: 0,
-        references: {
-          model: 'image_detail',
-          key: 'id'
-        }
       },
-      id_result: {
+      description: {
+        type: Sequelize.STRING,
         allowNull: false,
-        type: Sequelize.INTEGER,
-        defaultValue: 0,
-        references: {
-          model: 'result_detail',
-          key: 'id'
-        }
+        defaultValue: "unknown"
       },
       createdAt: {
         allowNull: false,
@@ -45,6 +48,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('predictions');
+    await queryInterface.dropTable('results');
   }
 };

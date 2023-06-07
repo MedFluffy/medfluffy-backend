@@ -2,36 +2,37 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('result_detail', {
+    await queryInterface.createTable('images', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id_img: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        defaultValue: 0,
-        references: {
-          model: 'image_detail',
-          key: 'id'
-        }
-      },
-      result_name: {
-        type: Sequelize.STRING,
+      img_url: {
+        type: Sequelize.TEXT,
         allowNull: false,
         defaultValue: "unknown"
       },
-      accuration: {
+      size_kb: {
         type: Sequelize.INTEGER,
         allowNull: false,
         defaultValue: 0
+      },
+      extension_file: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        defaultValue: "unknown"
       },
       description: {
         type: Sequelize.STRING,
         allowNull: false,
         defaultValue: "unknown"
+      },
+      status: {
+        type: Sequelize.ENUM('uploaded','predicted','unknown'),
+        allowNull: false,
+        defaultValue: "uploaded"
       },
       createdAt: {
         allowNull: false,
@@ -46,6 +47,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('result_details');
+    await queryInterface.dropTable('images');
   }
 };

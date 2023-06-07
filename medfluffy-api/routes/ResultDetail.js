@@ -2,10 +2,10 @@ var express = require('express');
 var router = express.Router();
 const validator = require('fastest-validator');
 const v = new validator();
-const { model_image } = require('../models/images')
+const { model_image } = require('../models/images');  
 /* GET home page. */
 router.get('/', async (req, res) => {
-    res.json({message: "ini halaman detail prediction"})
+    res.json({message: "ini halaman detail image"})
 });
 router.post('/add', async (req, res) => {
     res.json({message: "ini endpoint tambah foto"});

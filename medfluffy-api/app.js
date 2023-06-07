@@ -6,6 +6,9 @@ require('dotenv').config();
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var imageRouter = require('./routes/ImageDetail');
+var predictionRouter = require('./routes/Predictions');
+var resultRouter = require('./routes/ResultDetail');
 
 var app = express();
 
@@ -20,5 +23,8 @@ app.set("view engine", "ejs");
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/image', imageRouter);
+app.use('/prediction', predictionRouter);
+app.use('/result', resultRouter);
 
 module.exports = app;
