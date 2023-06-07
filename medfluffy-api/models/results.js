@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'id_result'
       });
       results.belongsTo(models.images, {
-        as: 'rslt2img',
+        as: 'ImageDetail',
         foreignKey: 'id',
         onUpdate: 'CASCADE',
         onDelete: 'SET DEFAULT'

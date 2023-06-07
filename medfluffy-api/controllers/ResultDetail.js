@@ -3,7 +3,12 @@ const db = require('../models/index');
 const controller = {
     async showAll(req, res, next){
         try {
-            const data = await db.results.findAll();
+            const data = await db.results.findAll({
+                include: [{
+                    model: db.images,
+                    as: 'ImageDetail'
+                }],
+            });
             if(!data){
                 let data = {
                     "message": "There is no data saved in database"
@@ -28,6 +33,34 @@ const controller = {
             }
             else{
                 const data = await db.results.findOne({
+                    where: {id:id},
+                });
+                if(!data){
+                    let data = {
+                        "message": "Data with the id is not found"
+                    }
+                    return res.status(200).json(data);
+                }
+                else{
+                    return res.status(200).json(data);
+                }
+            }
+        } catch (error) {
+            
+        }
+    },
+    //perlu direv add
+    async add(req, res, next){
+        try {
+            const { id } = req.params;
+            if(!id){
+                let data = {
+                    "message": "Id image is required"
+                }
+                return res.status(400).json(data);
+            }
+            else{
+                const data = await db.images.findOne({
                     where: {id:id},
                 });
                 if(!data){

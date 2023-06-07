@@ -5,13 +5,13 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       predictions.belongsTo(models.images, {
-        as: 'pred2img',
+        as: 'ImageDetail',
         foreignKey: 'id',
         onUpdate: 'CASCADE',
         onDelete: 'SET DEFAULT'
       });
       predictions.belongsTo(models.results, {
-        as: 'pred2rslt',
+        as: 'ResultDetail',
         foreignKey: 'id',
         onUpdate: 'CASCADE',
         onDelete: 'SET DEFAULT'
