@@ -11,9 +11,6 @@ router.post('/add', async (req, res) => {
     res.json({message: "ini endpoint tambah foto"});
 });
 router.get('/show', controller.showAll );
-router.get('/show/:id', async (req, res) => {
-    const id = req.params.id;
-    res.json({message: "ini endpoint tampil image ${id}"});
-});
+router.get('/show/:id', controller.showOne);
 
 module.exports = router;
