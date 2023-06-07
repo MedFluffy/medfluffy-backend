@@ -38,7 +38,6 @@ const controller = {
             
         }
     },
-    //perlu direv add
     async add(req, res, next){
         try {
             const schema = {
