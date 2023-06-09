@@ -5,6 +5,7 @@ const v = new validator();
 const controller = {
     async showAll(req, res, next){
         try {
+            const total = await db.predictions.count();
             const data = await db.predictions.findAll({
                 include: [{
                     model: db.images,
@@ -15,14 +16,15 @@ const controller = {
                 }],
             });
             if(!data){
-                let data = {
-                    "message": "There is no data saved in database"
-                }
-                return res.status(400).json(data);
+                let data = "There is no data saved in database";
             }
-            else{
-                return res.status(200).json(data);
+            const response = {
+                message: "success",
+                error: false,
+                count: total,
+                Predictions: data
             }
+            return res.status(200).json(response);
         } catch (error) {
             return next(new Error(error));
         }
@@ -41,14 +43,14 @@ const controller = {
                     where: {id:id},
                 });
                 if(!data){
-                    let data = {
-                        "message": "Data with the id is not found"
-                    }
-                    return res.status(200).json(data);
+                    let data = "Data is not found";
                 }
-                else{
-                    return res.status(200).json(data);
+                const response = {
+                    message: "success",
+                    error: false,
+                    Predictions: data
                 }
+                return res.status(200).json(response);
             }
         } catch (error) {
             
@@ -66,7 +68,12 @@ const controller = {
                 return res.status(400).json(validate);
             }
             const data = await db.predictions.create(req.body);
-            return res.status(201).json(data);
+            const response = {
+                message: "success",
+                error: false,
+                Predictions: data
+            }
+            return res.status(201).json(response);
         } catch (error) {
             return next(new Error(error));
         }

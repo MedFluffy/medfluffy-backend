@@ -5,6 +5,7 @@ const v = new Validator();
 const controller = {
     async showAll(req, res, next){
         try {
+            const total = await db.results.count();
             const data = await db.results.findAll({
                 include: [{
                     model: db.images,
@@ -12,14 +13,16 @@ const controller = {
                 }],
             });
             if(!data){
-                let data = {
-                    "message": "There is no data saved in database"
-                }
-                return res.status(400).json(data);
+                let data = "There is no data saved in database";
             }
-            else{
-                return res.status(200).json(data);
+            const response = {
+                message: "success",
+                error: false,
+                count: total,
+                ResultDetail: data
             }
+            return res.status(200).json(response);
+
         } catch (error) {
             return next(new Error(error));
         }
@@ -28,24 +31,27 @@ const controller = {
         try {
             const { id } = req.params;
             if(!id){
-                let data = {
-                    "message": "Id image is required"
+                let data =  "Id image is required"
+                const response = {
+                    message: "success",
+                    error: false,
+                    ResultDetail: data
                 }
-                return res.status(400).json(data);
+                return res.status(400).json(response);
             }
             else{
                 const data = await db.results.findOne({
                     where: {id:id},
                 });
                 if(!data){
-                    let data = {
-                        "message": "Data with the id is not found"
-                    }
-                    return res.status(200).json(data);
+                    let data = "Data with the id is not found";
                 }
-                else{
-                    return res.status(200).json(data);
+                const response = {
+                    message: "success",
+                    error: false,
+                    ResultDetail: data
                 }
+                return res.status(200).json(response);
             }
         } catch (error) {
             
@@ -65,7 +71,12 @@ const controller = {
                 return res.status(400).json(validate);
             }
             const data = await db.results.create(req.body);
-            return res.status(201).json(data);
+            const response = {
+                message: "success",
+                error: false,
+                ResultDetail: data
+            }
+            return res.status(201).json(response);
         } catch (error) {
             return next(new Error(error));
         }

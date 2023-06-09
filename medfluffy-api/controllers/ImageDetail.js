@@ -5,8 +5,15 @@ const v = new Validator();
 const controller = {
     async showAll(req, res, next){
         try {
+            const total = await db.images.count()
             const data = await db.images.findAll();
-            return res.status(200).json(data);
+            const response = {
+                message: "success",
+                error: false,
+                count: total,
+                ImageDetail: data
+            }
+            return res.status(200).json(response);
         } catch (error) {
             return next(new Error(error));
         }
@@ -21,18 +28,18 @@ const controller = {
                 return res.status(400).json(data);
             }
             else{
-                const data = await db.images.findOne({
+                let data = await db.images.findOne({
                     where: {id:id},
                 });
                 if(!data){
-                    let data = {
-                        "message": "Data with the id is not found"
-                    }
-                    return res.status(200).json(data);
+                    let data = "Data with the id is not found";
                 }
-                else{
-                    return res.status(200).json(data);
+                const response = {
+                    message: "success",
+                    error: false,
+                    ImageDetail: data
                 }
+                return res.status(200).json(response);
             }
         } catch (error) {
             
@@ -51,7 +58,12 @@ const controller = {
                 return res.status(400).json(validate);
             }
             const data = await db.images.create(req.body);
-            return res.status(201).json(data);
+            const response = {
+                message: "success",
+                error: false,
+                ImageDetail: data
+            }
+            return res.status(201).json(response);
         } catch (error) {
             return next(new Error(error));
         }
