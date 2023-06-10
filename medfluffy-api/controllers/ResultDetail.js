@@ -42,6 +42,10 @@ const controller = {
             else{
                 const data = await db.results.findOne({
                     where: {id:id},
+                    include: [{
+                        model: db.images,
+                        as: 'ImageDetail'
+                    }],
                 });
                 if(!data){
                     let data = "Data with the id is not found";

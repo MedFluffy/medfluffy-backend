@@ -8,11 +8,12 @@ const controller = {
             const total = await db.predictions.count();
             const data = await db.predictions.findAll({
                 include: [{
-                    model: db.images,
-                    as: 'ImageDetail'
-                },{
                     model: db.results,
                     as: 'ResultDetail',
+                    include:[{
+                        model: db.images,
+                        as: 'ImageDetail'
+                    }]
                 }],
             });
             if(!data){
@@ -41,6 +42,14 @@ const controller = {
             else{
                 const data = await db.predictions.findOne({
                     where: {id:id},
+                    include: [{
+                        model: db.results,
+                        as: 'ResultDetail',
+                        include:[{
+                            model: db.images,
+                            as: 'ImageDetail'
+                        }]
+                    }],
                 });
                 if(!data){
                     let data = "Data is not found";
