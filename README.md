@@ -1,9 +1,7 @@
 # MedFluffy Backend
 
 ## Overview
-This repository contains backend application projects used in MedFluffy mobile application (Android). There are several APIs that we build into multiple endpoints such as Pet Disease Detection and -----.
-
-We use JavaScript programming language with Node.js environment. For the framework, we use Express because this framework is used to design and build webservice applications (RESTful API) quickly and easily.
+This repository contains backend application projects used in MedFluffy mobile application (Android) with the prominent API that we build is for Pet Disease Detection.
 
 ## Contributors
 | Name | Bangkit ID | GitHub |
@@ -16,27 +14,6 @@ We use JavaScript programming language with Node.js environment. For the framewo
 - FastAPI
 - Cloud Run
 - Docker
-
-## Project Installation
-1. Clone the repository
-```bash
-git clone https://github.com/MedFluffy/medfluffy-backend.git
-```
-2. Open the project directory on terminal
-```bash
-cd PROJECT_DIRECTORY
-```
-4. Install all required dependencies
-```bash
-npm install
-```
-
-## Run The Application
-Open Command Prompt/Powershell and type:
-```bash
-cd PROJECT_DIRECTORY
-npm run start
-```
 
 ## Workflow
 
