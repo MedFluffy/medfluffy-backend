@@ -1,8 +1,8 @@
-# Tandur Backend
+# MedFluffy Backend
 [![top-language][img-shield-languange]][JavaScript]
 
 ## Overview
-This repository contains backend application projects used in Tandur mobile application (Android). There are several APIs that we build into multiple endpoints such as User Authentication (Login & Register), Crops/Plants Prediction, and CRUD for My Plants.
+This repository contains backend application projects used in MedFluffy mobile application (Android). There are several APIs that we build into multiple endpoints such as Pet Disease Detection and -----.
 
 We use JavaScript programming language with Node.js environment. For the framework, we use Express because this framework is used to design and build webservice applications (RESTful API) quickly and easily.
 
