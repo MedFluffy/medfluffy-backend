@@ -1,16 +1,15 @@
-# Tandur Backend
-[![top-language][img-shield-languange]][JavaScript]
+# MedFLuffy Backend
 
 ## Overview
-This repository contains backend application projects used in Tandur mobile application (Android). There are several APIs that we build into multiple endpoints such as User Authentication (Login & Register), Crops/Plants Prediction, and CRUD for My Plants.
+This repository contains backend application projects used in MedFluffy mobile application (Android). There are several APIs that we build into multiple endpoints such as Pet Disease Prediction, and ----.
 
 We use JavaScript programming language with Node.js environment. For the framework, we use Express because this framework is used to design and build webservice applications (RESTful API) quickly and easily.
 
 ## Contributors
 | Name | Bangkit ID | GitHub |
 | ------ | ------ | ------ |
-| Muhammad Firdaus Maulana | C2123G1560 | [![github-follow][github-follow-daus]][github-daus] |
-| Atharian Rahmadani | C2123G1561 | [![github-follow][github-follow-rian]][github-rian] |
+| Rahmadina | C137DSY1652 | [![github-follow][github-follow-dina]][github-dina] |
+| Fikri Aldi Dwi Putro | C013DSX2789 | [![github-follow][github-follow-aldi]][github-aldi] |
 
 ## Requirements
 - Code Editor ([Visual Studio Code] prefferable)
@@ -20,7 +19,7 @@ We use JavaScript programming language with Node.js environment. For the framewo
 ## Project Installation
 1. Clone the repository
 ```bash
-git clone https://github.com/Tandur-Team/tandur-backend.git
+git clone https://github.com/MedFluffy/medfluffy-backend.git
 ```
 2. Open the project directory on terminal
 ```bash
@@ -86,10 +85,8 @@ gcloud beta builds triggers create github --repo-name=tandur-repo \
 [Node.js]: https://nodejs.org/en/
 [Postman]: https://www.postman.com/
 
-[img-shield-languange]: https://img.shields.io/github/languages/top/Tandur-Team/tandur-backend
+[github-dina]: https://github.com/rhmdin
+[github-aldi]: https://github.com/fikrialdi10
 
-[github-rian]: https://github.com/atharianr
-[github-daus]: https://github.com/firdaus452maulana
-
-[github-follow-rian]: https://img.shields.io/github/followers/atharianr?style=social
-[github-follow-daus]: https://img.shields.io/github/followers/firdaus452maulana?style=social
+[github-follow-dina]: https://img.shields.io/github/followers/rhmdin?style=social
+[github-follow-aldi]: https://img.shields.io/github/followers/fikrialdi10?style=social
