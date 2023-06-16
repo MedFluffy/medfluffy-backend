@@ -19,7 +19,7 @@ We use JavaScript programming language with Node.js environment. For the framewo
 ## Project Installation
 1. Clone the repository
 ```bash
-git clone https://github.com/Tandur-Team/tandur-backend.git
+git clone https://github.com/MedFluffy/medfluffy-backend.git
 ```
 2. Open the project directory on terminal
 ```bash
