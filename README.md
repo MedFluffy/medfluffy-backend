@@ -16,7 +16,7 @@ This repository contains backend application projects used in MedFluffy mobile a
 - Docker
 
 ## Workflow
-
+![alt text](https://github.com/MedFluffy/medfluffy-backend/blob/main/public/Workflow%20CC.png?raw=true)
 
 
 [github-dina]: https://github.com/rhmdin
